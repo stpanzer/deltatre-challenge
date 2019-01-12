@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="productList">
+      <h1>Products</h1>
       <div v-if="products && products.length > 0">
         Total: {{products.length}}
         <div v-for="product of products" v-bind:key="product.id">
@@ -9,7 +10,6 @@
       <div v-else>
         Sorry, there aren't any products to show at this time.
       </div>
-
     </div>
 </template>
 
@@ -49,5 +49,8 @@ export default {
 </script>
 
 <style>
+.productList{
+  text-align:left;
+}
 
 </style>
