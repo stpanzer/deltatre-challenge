@@ -1,6 +1,7 @@
 <template>
     <div>
       <div v-if="lineItems && lineItems.length > 0">
+        Total: {{lineItems.length}}
         <div v-for="lineItem of lineItems" v-bind:key="lineItem.id">
           <line-item :item=lineItem></line-item>
         </div>
@@ -20,10 +21,25 @@ export default {
     return {
       lineItems: [
         {
-          name: 'Rose Bouquet',
-          description: 'An simple bouquet',
-          price: '14.99',
-          quantity: 20
+          name: 'Panko Bread Crumbs',
+          description: 'Japanese style bread crumbs',
+          price: '5.33',
+          quantity: 20,
+          id: 1
+        },
+        {
+          name: 'Fuji Apples',
+          description: '',
+          price: '3.50',
+          quantity: 520,
+          id: 2
+        },
+        {
+          name: 'Chickpeas (Canned)',
+          description: '12oz unsalted',
+          price: '1.20',
+          quantity: 10,
+          id: 3
         }
       ]
     }
