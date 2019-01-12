@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: 'NewLineItem'
+    name: 'NewProduct'
 
 }
 </script>

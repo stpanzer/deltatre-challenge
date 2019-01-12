@@ -1,9 +1,9 @@
 <template>
     <div>
-      <div v-if="lineItems && lineItems.length > 0">
-        Total: {{lineItems.length}}
-        <div v-for="lineItem of lineItems" v-bind:key="lineItem.id">
-          <line-item :item=lineItem></line-item>
+      <div v-if="products && products.length > 0">
+        Total: {{products.length}}
+        <div v-for="product of products" v-bind:key="product.id">
+          <product :item=product></product>
         </div>
       </div>
       <div v-else>
@@ -14,12 +14,12 @@
 </template>
 
 <script>
-import LineItem from '@/components/LineItem.vue'
+import Product from '@/components/Product.vue'
 export default {
   name: 'ProductList',
   data () {
     return {
-      lineItems: [
+      products: [
         {
           name: 'Panko Bread Crumbs',
           description: 'Japanese style bread crumbs',
@@ -44,7 +44,7 @@ export default {
       ]
     }
   },
-  components: { LineItem }
+  components: { Product }
 }
 </script>
 
