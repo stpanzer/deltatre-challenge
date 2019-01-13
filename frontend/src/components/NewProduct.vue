@@ -27,12 +27,18 @@ export default {
   },
   methods: {
     async save () {
+      this.errors = ''
       try {
-        var result = this.axios.post('https://localhost:5001/api/products', this.item)
+        var result = await this.axios.post('https://localhost:5001/api/products', this.item)
       } catch (err) {
-        this.errors = err.errors
+        this.errors = err.response.data.error
+        return;
       }
-      this.$emit('save-product', result)
+      this.item.name = ''
+      this.item.description = ''
+      this.item.quantity = 0
+      this.item.price = 0
+      this.$emit('save-product', result.data)
     }
   }
 }
