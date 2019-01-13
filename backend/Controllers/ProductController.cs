@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ namespace backend.Controllers
             this.cache = cache;
         }
         public class Product{
+            [Required]
             public string name;
             public string description;
             public int quantity;
@@ -51,6 +53,10 @@ namespace backend.Controllers
                 var cacheOptions = new MemoryCacheEntryOptions()
                     .SetAbsoluteExpiration(TimeSpan.FromDays(10));
                 cache.Set("products", cacheEntry, cacheOptions);
+            }
+            if(cacheEntry.Any(x => x.name == value.name)){
+                var error = new {error="Duplicate product names prohibited"};
+                return BadRequest(error);
             }
             cacheEntry.Add(value);
             return value;
