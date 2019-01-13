@@ -3,9 +3,7 @@
       <h1>Products</h1>
       <div v-if="products && products.length > 0">
         Total: {{products.length}}
-        <div v-for="product of products" v-bind:key="product.id">
-          <product :item="product"></product>
-        </div>
+        <b-table :items="products" :fields="fields"></b-table>
       </div>
       <div v-else>
         Sorry, there aren't any products to show at this time.
@@ -15,12 +13,12 @@
 </template>
 
 <script>
-import Product from '@/components/Product.vue'
 import NewProduct from '@/components/NewProduct.vue'
 export default {
   name: 'ProductList',
   data () {
     return {
+      fields: ['name', 'description', 'price', 'quantity'],
       products: [
         {
           name: 'Panko Bread Crumbs',
