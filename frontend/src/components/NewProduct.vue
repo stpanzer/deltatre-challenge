@@ -6,6 +6,7 @@
       <label>Quantity: <input v-model="item.quantity"/></label>
       <label>Price: <input v-model="item.price"/></label>
       <button @click="save()">Save</button>
+      <div class="errors">{{errors}}</div>
     </label>
   </div>
 </template>
@@ -20,13 +21,18 @@ export default {
         description: '',
         quantity: 0,
         price: 0
-      }
+      },
+      errors: ''
     }
   },
   methods: {
-    save () {
-      console.log('saving')
-      this.$emit('save-product', this.item)
+    async save () {
+      try {
+        var result = this.axios.post('https://localhost:5001/api/products', this.item)
+      } catch (err) {
+        this.errors = err.errors
+      }
+      this.$emit('save-product', result)
     }
   }
 }

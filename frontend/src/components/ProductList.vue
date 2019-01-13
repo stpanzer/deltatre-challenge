@@ -49,7 +49,7 @@ export default {
       this.products.push(newProduct)
     }
   },
-  components: { Product, NewProduct }
+  components: { NewProduct }
 }
 </script>
 
