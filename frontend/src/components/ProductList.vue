@@ -16,32 +16,13 @@
 import NewProduct from '@/components/NewProduct.vue'
 export default {
   name: 'ProductList',
+  async created () {
+    this.products = (await this.axios.get('https://localhost:5001/api/products')).data
+  },
   data () {
     return {
       fields: ['name', 'description', 'price', 'quantity'],
-      products: [
-        {
-          name: 'Panko Bread Crumbs',
-          description: 'Japanese style bread crumbs',
-          price: '5.33',
-          quantity: 20,
-          id: 1
-        },
-        {
-          name: 'Fuji Apples',
-          description: '',
-          price: '3.50',
-          quantity: 520,
-          id: 2
-        },
-        {
-          name: 'Chickpeas (Canned)',
-          description: '12oz unsalted',
-          price: '1.20',
-          quantity: 10,
-          id: 3
-        }
-      ]
+      products: null
     }
   },
   methods: {
