@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <label>
-      <label>Name: <input v-model="item.name"/></label>
-      <label>Description: <input v-model="item.description"/></label>
-      <label>Quantity: <input v-model="item.quantity" type="number"/></label>
-      <label>Price: <input v-model="item.price" type="number"></label>
-      <div class="errors">{{errors}}</div>
-      <button @click="save()">Save</button>
-    </label>
+  <div class="form-group col-md-4">
+    <h3>New Product</h3>
+    <label>Name: <input class="form-control" v-model="item.name"/></label>
+    <label>Description: <input class="form-control" v-model="item.description"/></label>
+    <label>Quantity: <input class="form-control" v-model="item.quantity" type="number"/></label>
+    <label>Price: <input class="form-control" v-model="item.price" type="number"></label>
+    <div class="alert alert-danger">{{errors}}</div>
+    <button @click="save()" class="btn btn-primary" type="button">Save</button>
   </div>
 </template>
 
