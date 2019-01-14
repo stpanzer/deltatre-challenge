@@ -18,6 +18,7 @@ export default {
   name: 'ProductList',
   async created () {
     this.products = (await this.axios.get('https://localhost:5001/api/products')).data
+    this.pollServer()
   },
   data () {
     return {
@@ -28,6 +29,10 @@ export default {
   methods: {
     addProduct (newProduct) {
       this.products.push(newProduct)
+    },
+    async pollServer(){
+      this.products = (await this.axios.get('https://localhost:5001/api/products')).data
+      setTimeout(this.pollServer, 3000)
     }
   },
   components: { NewProduct }
