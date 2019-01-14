@@ -31,16 +31,16 @@ export default {
         this.errors = 'Product name required'
         return
       }
+      if (!this.item.quantity && this.item.quantity != 0){
+        this.errors = 'Quantity required'
+        return false
+      }
       try {
         var result = await this.axios.post('https://localhost:5001/api/products', this.item)
       } catch (err) {
         this.errors = err.response.data
         return
       }
-      this.item.name = ''
-      this.item.description = ''
-      this.item.quantity = 0
-      this.item.price = 0
       this.$router.push('/')
     }
   }
