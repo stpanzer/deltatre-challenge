@@ -5,7 +5,7 @@
     <label>Description: <input class="form-control" v-model="item.description"/></label>
     <label>Quantity: <input class="form-control" v-model="item.quantity" type="number"/></label>
     <label>Price: <input class="form-control" v-model="item.price" type="number"></label>
-    <div class="alert alert-danger">{{errors}}</div>
+    <div class="alert alert-danger" v-if="errors">{{errors}}</div>
     <button @click="save()" class="btn btn-primary" type="button">Save</button>
   </div>
 </template>
