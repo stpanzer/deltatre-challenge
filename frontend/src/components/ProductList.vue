@@ -8,12 +8,10 @@
       <div v-else>
         Sorry, there aren't any products to show at this time.
       </div>
-      <new-product @save-product="addProduct"></new-product>
     </div>
 </template>
 
 <script>
-import NewProduct from '@/components/NewProduct.vue'
 export default {
   name: 'ProductList',
   async created () {
@@ -35,7 +33,6 @@ export default {
       setTimeout(this.pollServer, 5000)
     }
   },
-  components: { NewProduct }
 }
 </script>
 

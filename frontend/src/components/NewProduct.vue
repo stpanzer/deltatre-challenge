@@ -41,7 +41,7 @@ export default {
       this.item.description = ''
       this.item.quantity = 0
       this.item.price = 0
-      this.$emit('save-product', result.data)
+      this.$router.push('/')
     }
   }
 }
@@ -50,6 +50,9 @@ export default {
 <style>
 label{
   display:block;
+}
+.form-group{
+  text-align:left;
 }
 
 </style>
