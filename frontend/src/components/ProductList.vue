@@ -21,7 +21,8 @@ export default {
   data () {
     return {
       fields: ['name', 'description', 'price', 'quantity'],
-      products: null
+      products: null,
+      timer: null
     }
   },
   methods: {
@@ -30,9 +31,12 @@ export default {
     },
     async pollServer () {
       this.products = (await this.axios.get('https://localhost:5001/api/products')).data
-      setTimeout(this.pollServer, 5000)
+      this.timer = setTimeout(this.pollServer, 5000)
     }
   },
+  beforeDestroy(){
+    clearTimeout(this.timer)
+  }
 }
 </script>
 
