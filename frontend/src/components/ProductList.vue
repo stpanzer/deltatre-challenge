@@ -34,7 +34,7 @@ export default {
       this.timer = setTimeout(this.pollServer, 5000)
     }
   },
-  beforeDestroy(){
+  beforeDestroy () {
     clearTimeout(this.timer)
   }
 }
