@@ -20,7 +20,7 @@ namespace backend.Controllers
             public string name;
             public string description;
             public int quantity;
-            public decimal price;
+            public decimal? price;
         }
         // GET api/value
         [HttpGet]
