@@ -3,10 +3,10 @@
     <label>
       <label>Name: <input v-model="item.name"/></label>
       <label>Description: <input v-model="item.description"/></label>
-      <label>Quantity: <input v-model="item.quantity"/></label>
-      <label>Price: <input v-model="item.price"/></label>
-      <button @click="save()">Save</button>
+      <label>Quantity: <input v-model="item.quantity" type="number"/></label>
+      <label>Price: <input v-model="item.price" type="number"></label>
       <div class="errors">{{errors}}</div>
+      <button @click="save()">Save</button>
     </label>
   </div>
 </template>
@@ -28,10 +28,14 @@ export default {
   methods: {
     async save () {
       this.errors = ''
+      if (!this.item.name) {
+        this.errors = 'Product name required'
+        return
+      }
       try {
         var result = await this.axios.post('https://localhost:5001/api/products', this.item)
       } catch (err) {
-        this.errors = err.response.data.error
+        this.errors = err.response.data
         return
       }
       this.item.name = ''
