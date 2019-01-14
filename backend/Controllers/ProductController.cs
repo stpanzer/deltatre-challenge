@@ -55,7 +55,7 @@ namespace backend.Controllers
                 cache.Set("products", cacheEntry, cacheOptions);
             }
             if(cacheEntry.Any(x => x.name == value.name)){
-                var error = new {error="Duplicate product names prohibited"};
+                var error = "Duplicate product names prohibited";
                 return BadRequest(error);
             }
             cacheEntry.Add(value);
