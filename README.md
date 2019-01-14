@@ -10,6 +10,7 @@ For the requirement that new products added appear without reloading, I implemen
 To run frontend:
 
 npm install
+
 npm run serve 
 
 To run backend:
