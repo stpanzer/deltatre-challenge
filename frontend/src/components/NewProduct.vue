@@ -1,6 +1,6 @@
 <template>
   <div class="form-group col-md-4">
-    <h3>New Product</h3>
+    <h1>New Product</h1>
     <label>Name: <input class="form-control" v-model="item.name"/></label>
     <label>Description: <input class="form-control" v-model="item.description"/></label>
     <label>Quantity: <input class="form-control" v-model="item.quantity" type="number"/></label>
