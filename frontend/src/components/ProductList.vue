@@ -32,7 +32,7 @@ export default {
     },
     async pollServer () {
       this.products = (await this.axios.get('https://localhost:5001/api/products')).data
-      setTimeout(this.pollServer, 3000)
+      setTimeout(this.pollServer, 5000)
     }
   },
   components: { NewProduct }
