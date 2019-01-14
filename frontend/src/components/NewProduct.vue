@@ -32,7 +32,7 @@ export default {
         var result = await this.axios.post('https://localhost:5001/api/products', this.item)
       } catch (err) {
         this.errors = err.response.data.error
-        return;
+        return
       }
       this.item.name = ''
       this.item.description = ''
